@@ -1,7 +1,10 @@
 package me.darragh.brainfuck.interpreter;
 
 import lombok.RequiredArgsConstructor;
+import me.darragh.brainfuck.ast.Token;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  * @author darraghd493
@@ -9,5 +12,7 @@ import org.jetbrains.annotations.NotNull;
  */
 @RequiredArgsConstructor
 public abstract class BrainfuckInterpreterEngine {
-    private final @NotNull BrainfuckInterpreterConfiguration configuration;
+    protected final @NotNull BrainfuckInterpreterConfiguration configuration;
+
+    public abstract void execute(@NotNull List<Token> tokens);
 }
