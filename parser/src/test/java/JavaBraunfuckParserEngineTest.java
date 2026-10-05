@@ -19,10 +19,10 @@ class JavaBrainfuckParserEngineTest {
     public void testUnmatchedLoopBrackets() {
         assertThatThrownBy(() -> ENGINE.extractTokens("[+[]"))
                 .isInstanceOf(BrainfuckParserException.class)
-                .hasMessage("Mismatched loop characters: 2 start loops and 1 end loops.");
+                .hasMessage("Unmatched start loop character at index 0");
         assertThatThrownBy(() -> ENGINE.extractTokens("[+]]"))
                 .isInstanceOf(BrainfuckParserException.class)
-                .hasMessage("Mismatched loop characters: 1 start loops and 2 end loops.");
+                .hasMessage("Unexpected end loop character at index 3");
     }
 
     @SneakyThrows
@@ -38,8 +38,8 @@ class JavaBrainfuckParserEngineTest {
                 Tokens.moveLeftToken(),
                 Tokens.outputToken(),
                 Tokens.inputToken(),
-                Tokens.startLoopToken(),
-                Tokens.endLoopToken()
+                Tokens.startLoopToken((byte) 9),
+                Tokens.endLoopToken((byte) 8)
         );
         assertThatList(expectedTokens).isEqualTo(extractedTokens);
     }

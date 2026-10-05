@@ -3,6 +3,8 @@ package me.darragh.brainfuck.parser.type;
 import me.darragh.brainfuck.ast.Token;
 import me.darragh.brainfuck.ast.TokenType;
 import me.darragh.brainfuck.ast.Tokens;
+import me.darragh.brainfuck.ast.type.EndLoopToken;
+import me.darragh.brainfuck.ast.type.StartLoopToken;
 import me.darragh.brainfuck.parser.BrainfuckParserConfiguration;
 import me.darragh.brainfuck.parser.BrainfuckParserEngine;
 import me.darragh.brainfuck.parser.BrainfuckParserException;
@@ -11,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Stack;
 
 /**
  * @author darraghd493
@@ -27,16 +30,33 @@ public final class JavaBrainfuckParserEngine extends BrainfuckParserEngine {
                 .filter(Objects::nonNull)
                 .toList();
 
-        long startLoopCount = tokens.stream().filter(t -> t.getType() == TokenType.START_LOOP).count(),
-                endLoopCount = tokens.stream().filter(t -> t.getType() == TokenType.END_LOOP).count();
+        // match loop brackets
+        Stack<Integer> startLoops = new Stack<>();
 
-        if (startLoopCount != endLoopCount) {
-            throw new BrainfuckParserException(
-                    "Mismatched loop characters: %d start loops and %d end loops.".formatted(startLoopCount, endLoopCount)
-            );
-        } else {
-            return tokens;
+
+        for (int i = 0; i < tokens.size(); i++) {
+            Token token = tokens.get(i);
+            if (token.getType() == TokenType.START_LOOP) {
+                startLoops.push(i);
+            } else if (token.getType() == TokenType.END_LOOP) {
+                if (startLoops.isEmpty()) {
+                    throw new BrainfuckParserException("Unexpected end loop character at index " + i);
+                }
+                int startLoopIndex = startLoops.pop();
+                if (tokens.get(startLoopIndex) instanceof StartLoopToken startLoopToken) {
+                    startLoopToken.setNextIndex(i);
+                }
+                if (token instanceof EndLoopToken endLoopToken) {
+                    endLoopToken.setPreviousIndex(startLoopIndex);
+                }
+            }
         }
+
+        if (!startLoops.isEmpty()) {
+            throw new BrainfuckParserException("Unmatched start loop character at index " + startLoops.peek());
+        }
+
+        return tokens;
     }
 
     private @Nullable Token mapCharToToken(char ch) {

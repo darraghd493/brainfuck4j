@@ -38,7 +38,15 @@ public final class Tokens {
         return new StartLoopToken();
     }
 
+    public static @NotNull StartLoopToken startLoopToken(byte nextIndex) {
+        return new StartLoopToken(nextIndex);
+    }
+
     public static @NotNull EndLoopToken endLoopToken() {
         return new EndLoopToken();
+    }
+
+    public static @NotNull EndLoopToken endLoopToken(byte previousIndex) {
+        return new EndLoopToken(previousIndex);
     }
 }

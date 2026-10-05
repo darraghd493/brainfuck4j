@@ -1,5 +1,9 @@
 package me.darragh.brainfuck.ast.type;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import me.darragh.brainfuck.ast.Token;
 import me.darragh.brainfuck.ast.TokenIdentifiers;
 import me.darragh.brainfuck.ast.TokenType;
@@ -9,7 +13,13 @@ import org.jetbrains.annotations.NotNull;
  * @author darraghd493
  * @since 1.0.0
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public final class StartLoopToken extends Token {
+    private int nextIndex;
+
     @Override
     public byte getIdentifier() {
         return TokenIdentifiers.START_LOOP;
@@ -22,6 +32,6 @@ public final class StartLoopToken extends Token {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof StartLoopToken;
+        return obj instanceof StartLoopToken o && o.nextIndex == this.nextIndex;
     }
 }
