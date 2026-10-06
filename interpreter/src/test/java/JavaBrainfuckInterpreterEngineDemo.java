@@ -14,9 +14,9 @@ String HELLO_WORLD_SOURCE = """
 
 @SneakyThrows
 void main() {
-    BrainfuckParserEngine PARSER = BrainfuckParserEngines.javaBrainfuckParserEngine();
-    BrainfuckInterpreterEngine INTERPRETER = BrainfuckInterpreterEngines.javaBrainfuckInterpreterEngine();
+    BrainfuckParserEngine parser = BrainfuckParserEngines.javaBrainfuckParserEngine();
+    BrainfuckInterpreterEngine interpreter = BrainfuckInterpreterEngines.javaBrainfuckInterpreterEngine();
 
-    List<Token> tokens = PARSER.extractTokens(HELLO_WORLD_SOURCE);
-    INTERPRETER.execute(tokens);
+    List<Token> tokens = parser.extractTokens(HELLO_WORLD_SOURCE);
+    interpreter.execute(tokens);
 }
