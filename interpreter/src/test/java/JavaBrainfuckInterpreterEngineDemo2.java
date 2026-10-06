@@ -1,9 +1,9 @@
 import lombok.SneakyThrows;
-import me.darragh.brainfuck.ast.Token;
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterEngine;
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterEngines;
-import me.darragh.brainfuck.parser.BrainfuckParserEngine;
-import me.darragh.brainfuck.parser.BrainfuckParserEngines;
+import me.darragh.brainfuck4j.ast.Token;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterEngine;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterEngines;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngine;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngines;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;

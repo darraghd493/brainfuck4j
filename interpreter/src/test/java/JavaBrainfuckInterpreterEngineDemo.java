@@ -1,9 +1,9 @@
 import lombok.SneakyThrows;
-import me.darragh.brainfuck.ast.Token;
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterEngine;
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterEngines;
-import me.darragh.brainfuck.parser.BrainfuckParserEngine;
-import me.darragh.brainfuck.parser.BrainfuckParserEngines;
+import me.darragh.brainfuck4j.ast.Token;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterEngine;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterEngines;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngine;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngines;
 
 // from https://gist.github.com/roachhd/dce54bec8ba55fb17d3a
 String HELLO_WORLD_SOURCE = """

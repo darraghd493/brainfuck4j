@@ -1,6 +1,6 @@
 import lombok.SneakyThrows;
-import me.darragh.brainfuck.parser.BrainfuckParserEngine;
-import me.darragh.brainfuck.parser.BrainfuckParserEngines;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngine;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngines;
 
 @SneakyThrows
 void main() {

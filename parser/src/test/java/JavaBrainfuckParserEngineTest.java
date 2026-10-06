@@ -1,9 +1,9 @@
 import lombok.SneakyThrows;
-import me.darragh.brainfuck.ast.Token;
-import me.darragh.brainfuck.ast.Tokens;
-import me.darragh.brainfuck.parser.BrainfuckParserEngine;
-import me.darragh.brainfuck.parser.BrainfuckParserEngines;
-import me.darragh.brainfuck.parser.BrainfuckParserException;
+import me.darragh.brainfuck4j.ast.Token;
+import me.darragh.brainfuck4j.ast.Tokens;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngine;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngines;
+import me.darragh.brainfuck4j.parser.BrainfuckParserException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

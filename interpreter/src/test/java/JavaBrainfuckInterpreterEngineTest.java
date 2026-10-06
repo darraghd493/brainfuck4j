@@ -1,9 +1,9 @@
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterConfiguration;
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterEngine;
-import me.darragh.brainfuck.interpreter.BrainfuckInterpreterEngines;
-import me.darragh.brainfuck.parser.BrainfuckParserEngine;
-import me.darragh.brainfuck.parser.BrainfuckParserEngines;
-import me.darragh.brainfuck.parser.BrainfuckParserException;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterConfiguration;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterEngine;
+import me.darragh.brainfuck4j.interpreter.BrainfuckInterpreterEngines;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngine;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngines;
+import me.darragh.brainfuck4j.parser.BrainfuckParserException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

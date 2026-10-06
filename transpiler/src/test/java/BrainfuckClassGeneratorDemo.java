@@ -1,9 +1,9 @@
 import lombok.SneakyThrows;
-import me.darragh.brainfuck.ast.Token;
-import me.darragh.brainfuck.parser.BrainfuckParserEngine;
-import me.darragh.brainfuck.parser.BrainfuckParserEngines;
-import me.darragh.brainfuck.transpiler.BrainfuckClassGenerator;
-import me.darragh.brainfuck.transpiler.BrainfuckClassGeneratorConfiguration;
+import me.darragh.brainfuck4j.ast.Token;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngine;
+import me.darragh.brainfuck4j.parser.BrainfuckParserEngines;
+import me.darragh.brainfuck4j.transpiler.BrainfuckClassGenerator;
+import me.darragh.brainfuck4j.transpiler.BrainfuckClassGeneratorConfiguration;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
@@ -17,7 +17,7 @@ import java.net.http.HttpResponse;
 void main() {
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://brainfuck.org/e.b"))
+            .uri(URI.create("https://brainfuck.org/tictactoe.b"))
             .build();
     String program = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
 
