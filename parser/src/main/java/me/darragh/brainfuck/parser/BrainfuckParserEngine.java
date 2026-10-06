@@ -7,6 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
+ * Tokenizes and links a brainfuck program.
+ *
  * @author darraghd493
  * @since 1.0.0
  */

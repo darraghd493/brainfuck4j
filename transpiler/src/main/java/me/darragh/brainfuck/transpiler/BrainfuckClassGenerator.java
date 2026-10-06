@@ -11,8 +11,10 @@ import java.util.List;
 import java.util.Stack;
 
 /**
+ * Generates a JVM class, containing bytecode, for the brainfuck given program.
+ *
  * @author darraghd493
- * @since 0.0.1
+ * @since 1.0.0
  */
 @RequiredArgsConstructor
 public final class BrainfuckClassGenerator implements Opcodes {
