@@ -27,8 +27,6 @@ void main() {
     BrainfuckClassGenerator generator = new BrainfuckClassGenerator(BrainfuckClassGeneratorConfiguration.DEFAULT);
     // BrainfuckClassGenerator generator = new BrainfuckClassGenerator(new BrainfuckClassGeneratorConfiguration(3_000_000, "Main"));
     ClassNode classNode = generator.generateClass(tokens);
-    classNode.version = Opcodes.V1_8;
-
     ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
     classNode.accept(classWriter);
     byte[] bytecode = classWriter.toByteArray();
